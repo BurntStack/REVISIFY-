@@ -709,7 +709,7 @@ const Hero = ({ onShopNow, onAddToCart, onExpressBuy }) => {
             <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl lg:text-[5.5rem] font-black uppercase text-zinc-900 leading-[0.95] tracking-tighter mb-8">
               Cool and <br/>
               Classy: <br/>
-              <span className="text-zinc-600">Discover</span> <br/>
+              <span className="text-[#f5bd02]">Discover</span> <br/>
               Our Finest <br/>
               Fashion.
             </motion.h1>
