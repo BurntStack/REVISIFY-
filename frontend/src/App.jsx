@@ -24,6 +24,7 @@ import Interactive3DCard from './components/Interactive3DCard';
 import { TrackOrderModal, ContactUsPage, BlogModal, ProductModal } from './components/HeaderModals';
 import ExploreArchives from './components/ExploreArchives';
 import ExpressCheckoutModal from './components/ExpressCheckoutModal';
+import TrustBadges from './components/TrustBadges';
 
 import { PRODUCTS, CATEGORIES } from './data/products';
 
@@ -1418,6 +1419,8 @@ export default function App() {
         <ContactUsPage />
       </main>
       )}
+
+      <TrustBadges />
 
       <Footer 
         onNavigateSection={scrollToSection} 
