@@ -1302,7 +1302,7 @@ export default function App() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-16"
           >
             {PRODUCTS.slice(0, 8).map(product => (
                 <ProductCard 
@@ -1393,7 +1393,7 @@ export default function App() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 pb-24"
+              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-x-6 sm:gap-y-12 lg:gap-x-8 lg:gap-y-16 pb-24"
             >
               {displayedProducts.map(product => (
                 <ProductCard 

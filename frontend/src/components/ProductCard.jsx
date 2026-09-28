@@ -112,9 +112,10 @@ export default function ProductCard({
       </div>
 
       {/* Product Information */}
-      <div className="p-4 flex flex-col flex-1 justify-between gap-3">
+      <div className="p-2 sm:p-4 flex flex-col flex-1 justify-between gap-2 sm:gap-3">
         <div>
-          <div className="flex items-center justify-between text-[11px] text-zinc-500 uppercase tracking-wider mb-1">
+          {/* Category & rating — hidden on mobile to save space */}
+          <div className="hidden sm:flex items-center justify-between text-[11px] text-zinc-500 uppercase tracking-wider mb-1">
             <span>{product.categoryLabel}</span>
             <div className="flex items-center text-amber-500">
               <Star size={12} className="fill-amber-400" />
@@ -125,21 +126,21 @@ export default function ProductCard({
 
           <h3 
             onClick={() => onQuickView(product)}
-            className="font-bold text-zinc-900 text-sm leading-snug group-hover:text-zinc-500 transition-colors line-clamp-2 cursor-pointer"
+            className="font-bold text-zinc-900 text-xs sm:text-sm leading-snug group-hover:text-zinc-500 transition-colors line-clamp-2 cursor-pointer"
           >
             {product.name}
           </h3>
         </div>
 
-        {/* Price & Primary Add to Cart Button */}
-        <div className="pt-2 border-t border-zinc-100 flex items-center justify-between gap-2">
+        {/* Price & Add to Cart Button */}
+        <div className="pt-1.5 sm:pt-2 border-t border-zinc-100 flex items-center justify-between gap-1">
           <div className="flex flex-col">
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-black text-zinc-950 text-base">
+            <div className="flex items-baseline gap-1">
+              <span className="font-black text-zinc-950 text-sm sm:text-base">
                 ₹{product.price.toLocaleString()}
               </span>
               {product.originalPrice && (
-                <span className="text-xs text-zinc-400 line-through">
+                <span className="text-[10px] sm:text-xs text-zinc-400 line-through">
                   ₹{product.originalPrice.toLocaleString()}
                 </span>
               )}
@@ -148,7 +149,7 @@ export default function ProductCard({
 
           <button 
             onClick={handleAddToCart}
-            className={`px-3.5 py-2 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[10px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer ${
               justAdded 
                 ? 'bg-emerald-600 text-white' 
                 : 'bg-zinc-950 hover:bg-zinc-700 text-white'
@@ -156,13 +157,13 @@ export default function ProductCard({
           >
             {justAdded ? (
               <>
-                <Check size={13} strokeWidth={2.5} />
-                <span>ADDED</span>
+                <Check size={12} strokeWidth={2.5} />
+                <span className="hidden sm:inline">ADDED</span>
               </>
             ) : (
               <>
-                <ShoppingBag size={13} />
-                <span>ADD</span>
+                <ShoppingBag size={12} />
+                <span className="hidden sm:inline">ADD</span>
               </>
             )}
           </button>
