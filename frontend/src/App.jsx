@@ -967,32 +967,7 @@ const AboutUs = () => {
   );
 };
 
-const Features = () => {
-  const features = [
-    { icon: <Truck size={24} strokeWidth={1.5}/>, title: "Worldwide Shipping", desc: "Fast & reliable delivery" },
-    { icon: <RefreshCcw size={24} strokeWidth={1.5}/>, title: "30 Days Return", desc: "No questions asked" },
-    { icon: <Shield size={24} strokeWidth={1.5}/>, title: "Secure Checkout", desc: "Encrypted payments" },
-    { icon: <Headphones size={24} strokeWidth={1.5}/>, title: "Premium Support", desc: "24/7 dedicated help" }
-  ];
 
-  return (
-    <div id="features" className="border-t border-zinc-200 bg-white py-16">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {features.map((feat, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center space-y-4">
-              <div className="text-zinc-900 bg-zinc-50 p-4 rounded-full">{feat.icon}</div>
-              <div>
-                <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-1">{feat.title}</h4>
-                <p className="text-xs text-zinc-500">{feat.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Footer = ({ onNavigateSection, onFilterCategory }) => {
   return (
@@ -1329,7 +1304,7 @@ export default function App() {
             </button>
           </div>
         </section>
-        <Features />
+        
       </main>
       ) : currentView === 'products' ? (
       <main className="pt-[116px]">
