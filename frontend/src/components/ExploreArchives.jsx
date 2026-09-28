@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowRight, Zap, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { ArrowRight, Zap } from 'lucide-react';
 
 export default function ExploreArchives({ 
   products = [], 
@@ -128,14 +127,10 @@ export default function ExploreArchives({
   };
 
   return (
-    <section className="relative pt-12 pb-14 bg-zinc-950 text-white border-y border-zinc-900 overflow-hidden">
-      {/* Subtle gold radial ambient glow */}
+    <section className="relative pt-14 pb-14 bg-[#f7f7f8] text-zinc-950 border-b border-zinc-200/80 overflow-hidden">
+      {/* Subtle warm ambient highlight */}
       <div 
-        className="absolute top-0 right-1/4 w-[500px] h-[350px] bg-yellow-500/5 rounded-full blur-[120px] pointer-events-none" 
-        aria-hidden="true" 
-      />
-      <div 
-        className="absolute bottom-0 left-10 w-[400px] h-[300px] bg-yellow-400/5 rounded-full blur-[100px] pointer-events-none" 
+        className="absolute top-0 right-1/4 w-[450px] h-[300px] bg-yellow-400/8 rounded-full blur-[100px] pointer-events-none" 
         aria-hidden="true" 
       />
 
@@ -143,13 +138,13 @@ export default function ExploreArchives({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="flex items-center gap-2 text-yellow-400 font-black text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-              <span>REV ARCHIVES</span>
-              <span className="text-zinc-600">•</span>
-              <span className="text-zinc-400">CURATED STREETWEAR</span>
+            <div className="flex items-center gap-2 text-zinc-500 font-black text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#f5bd02] animate-pulse" />
+              <span className="text-zinc-900">REV ARCHIVES</span>
+              <span className="text-zinc-400">•</span>
+              <span>CURATED STREETWEAR</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white font-heading">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-zinc-950 font-heading">
               EXPLORE MEN&apos;S ARCHIVES
             </h2>
           </div>
@@ -157,15 +152,15 @@ export default function ExploreArchives({
           <div className="flex items-center gap-3">
             <button
               onClick={onViewCatalog}
-              className="flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-zinc-300 hover:text-yellow-400 transition-colors group cursor-pointer"
+              className="flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-zinc-950 hover:text-zinc-600 transition-colors group cursor-pointer"
             >
               <span>VIEW FULL CATALOG</span>
-              <ArrowRight size={16} className="text-yellow-400 group-hover:translate-x-1.5 transition-transform duration-200" />
+              <ArrowRight size={16} className="text-zinc-950 group-hover:translate-x-1.5 transition-transform duration-200" />
             </button>
           </div>
         </div>
 
-        {/* MOBILE VIEW (< lg): Interactive Tab Pills + Swipeable Cinematic Deck */}
+        {/* MOBILE VIEW (< lg): Interactive Tab Pills + Swipeable Dark Deck */}
         <div className="lg:hidden">
           {/* Drop Navigation Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar">
@@ -177,18 +172,18 @@ export default function ExploreArchives({
                   onClick={() => scrollToDrop(drop.id)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 shrink-0 ${
                     isActive
-                      ? 'bg-yellow-400 text-zinc-950 shadow-md shadow-yellow-400/20 scale-[1.02]'
-                      : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
+                      ? 'bg-zinc-950 text-white shadow-md scale-[1.02]'
+                      : 'bg-white text-zinc-600 border border-zinc-200/90 hover:border-zinc-300'
                   }`}
                 >
-                  <span className="opacity-70">0{idx + 1}</span>
+                  <span className={isActive ? 'text-yellow-400' : 'text-zinc-400'}>0{idx + 1}</span>
                   <span>{drop.tag}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* Swipeable Cards Carousel */}
+          {/* Swipeable Cards Carousel (Dark photographic cards on clean white background) */}
           <div 
             ref={mobileScrollRef}
             onScroll={handleMobileScroll}
@@ -200,7 +195,7 @@ export default function ExploreArchives({
               return (
                 <div
                   key={drop.id}
-                  className="w-[84vw] max-w-[340px] shrink-0 snap-center rounded-[24px] relative overflow-hidden bg-zinc-900 border border-zinc-800/80 shadow-2xl flex flex-col justify-between p-6 select-none"
+                  className="w-[84vw] max-w-[340px] shrink-0 snap-center rounded-[24px] relative overflow-hidden bg-zinc-950 border border-zinc-800 shadow-2xl flex flex-col justify-between p-6 select-none"
                   style={{ minHeight: '440px' }}
                 >
                   {/* High Definition Cinematic Image with Deep Gradient */}
@@ -313,7 +308,7 @@ export default function ExploreArchives({
                   onClick={() => scrollToDrop(drop.id)}
                   aria-label={`Go to ${drop.subtitle}`}
                   className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeDropId === drop.id ? 'w-6 bg-yellow-400' : 'w-1.5 bg-zinc-700'
+                    activeDropId === drop.id ? 'w-6 bg-zinc-950' : 'w-1.5 bg-zinc-300'
                   }`}
                 />
               ))}
@@ -324,7 +319,7 @@ export default function ExploreArchives({
           </div>
         </div>
 
-        {/* DESKTOP VIEW (>= lg): Premium Interactive Expanding Accordion */}
+        {/* DESKTOP VIEW (>= lg): Premium Interactive Expanding Accordion with Dark Cards on White Background */}
         <div className="hidden lg:flex gap-4 sm:gap-5 items-stretch min-h-[380px]">
           {drops.map((drop) => {
             const isHovered = activeDropId === drop.id;
@@ -337,8 +332,8 @@ export default function ExploreArchives({
                 onClick={() => setActiveDropId(drop.id)}
                 className={`relative rounded-[28px] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer select-none flex flex-col justify-between ${
                   isHovered
-                    ? 'flex-[2.6] min-w-[420px] shadow-2xl ring-1 ring-yellow-400/30'
-                    : 'flex-1 min-w-[180px] bg-zinc-900 border border-zinc-800 hover:border-zinc-700'
+                    ? 'flex-[2.6] min-w-[420px] shadow-2xl ring-2 ring-zinc-950/20'
+                    : 'flex-1 min-w-[180px] bg-zinc-950 border border-zinc-800 hover:border-zinc-700 shadow-lg'
                 } p-7`}
                 style={{ minHeight: '380px' }}
               >
@@ -348,7 +343,7 @@ export default function ExploreArchives({
                     src={drop.image}
                     alt={drop.title.replace('\n', ' ')}
                     className={`w-full h-full object-cover object-center transition-all duration-700 ease-out ${
-                      isHovered ? 'scale-105 opacity-100' : 'scale-100 opacity-40 grayscale-[30%]'
+                      isHovered ? 'scale-105 opacity-100' : 'scale-100 opacity-40 grayscale-[25%]'
                     }`}
                     loading="lazy"
                   />
